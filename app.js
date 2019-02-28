@@ -24,9 +24,13 @@ io.on('connection', function(socket) {
 	
 	
 	for (var playerId in players) {
+		console.log(playerId);
+		
 		if (playerId == thisPlayerID) continue;
 
-		console.log("Sending Spawn To New Player With ID", playerID);
+		console.log(playerId);
+
+		console.log("Sending Spawn To New Player With ID", playerId);
 		socket.emit('spawn', players[playerId]);
 	}
 
