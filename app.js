@@ -21,6 +21,7 @@ io.on('connection', function(socket) {
 
 	socket.emit('register', {id: thisPlayerID});
 	socket.broadcast.emit('spawn', {id: thisPlayerID});
+	socket.broadcast.emit('requestPosition');
 	
 	
 	for (var playerId in players) {
@@ -56,6 +57,5 @@ io.on('connection', function(socket) {
 		data.id = thisPlayerID;
 
 		socket.broadcast.emit('updatePosition', data);
-
 	});
 });
